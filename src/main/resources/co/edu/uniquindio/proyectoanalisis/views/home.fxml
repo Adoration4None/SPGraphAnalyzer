@@ -3,11 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoanalisis.controllers.HomeController">
    <center>
@@ -52,4 +56,31 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox fx:id="hbLoadedGraph" alignment="CENTER" prefHeight="45.0" prefWidth="900.0" style="-fx-background-color: gray;" visible="false" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="45.0" prefWidth="582.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="121.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="461.0" minWidth="10.0" prefWidth="461.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loaded Graph:">
+                     <font>
+                        <Font name="Lato Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="lblLoadedGraph" prefHeight="17.0" prefWidth="415.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Lato Regular" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

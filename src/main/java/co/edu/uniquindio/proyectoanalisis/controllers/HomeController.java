@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 public class HomeController {
     // GUI elements
@@ -13,6 +14,12 @@ public class HomeController {
 
     @FXML
     private Button btnRunAlgorithms;
+
+    @FXML
+    private HBox hbLoadedGraph;
+
+    @FXML
+    private Label lblLoadedGraph;
 
     // Reference to the main application
     private App app;
@@ -40,5 +47,10 @@ public class HomeController {
 
     public void setMainApp(App app) {
         this.app = app;
+    }
+
+    public void setLoadedGraphInfo(int size) {
+        hbLoadedGraph.setVisible(true);
+        lblLoadedGraph.setText(size + " vertices (" + size + "*" + size + " matrix)");
     }
 }

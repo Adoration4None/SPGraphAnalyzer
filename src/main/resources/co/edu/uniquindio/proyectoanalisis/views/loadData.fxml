@@ -22,7 +22,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c1" height="560.0" layoutX="219.0" stroke="BLACK" strokeType="INSIDE" width="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Text fill="#fcfcfc" layoutX="346.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOAD DATA">
+      <Text fill="#fcfcfc" layoutX="346.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOAD DATA" AnchorPane.topAnchor="33.0">
          <font>
             <Font name="Lato Bold" size="36.0" />
          </font>
@@ -49,7 +49,7 @@
             <Button fx:id="btn10000" layoutX="210.0" layoutY="87.0" mnemonicParsing="false" onAction="#load10000Action" prefHeight="65.0" prefWidth="97.0" text="10000x10000" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Text fill="#d7d7d7" layoutX="175.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the size for the adjacency matrix to be loaded">
+      <Text fill="#d7d7d7" layoutX="175.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the size for the adjacency matrix to be loaded" AnchorPane.topAnchor="178.0">
          <font>
             <Font name="Lato Regular" size="24.0" />
          </font>

@@ -2,6 +2,8 @@ package co.edu.uniquindio.proyectoanalisis;
 
 import co.edu.uniquindio.proyectoanalisis.controllers.HomeController;
 import co.edu.uniquindio.proyectoanalisis.controllers.LayoutController;
+import co.edu.uniquindio.proyectoanalisis.controllers.LoadDataController;
+import co.edu.uniquindio.proyectoanalisis.controllers.RunAlgorithmsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +17,10 @@ import java.math.BigInteger;
 public class App extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private LayoutController layoutController;
+
+    // Loaded graph (adjacency matrix)
+    private int[][] loadedGraph;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -31,6 +37,7 @@ public class App extends Application {
 
             HomeController controller = loader.getController();
             controller.setMainApp(this);
+            if(loadedGraph != null) controller.setLoadedGraphInfo(loadedGraph.length);
 
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -47,8 +54,9 @@ public class App extends Application {
             loader.setLocation(App.class.getResource("views/layout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
-            LayoutController controller = loader.getController();
-            controller.setMainApp(this);
+            this.layoutController = loader.getController();
+            layoutController.setMainApp(this);
+            if(loadedGraph != null) layoutController.setLoadedGraphInfo(loadedGraph.length);
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
@@ -66,16 +74,9 @@ public class App extends Application {
             AnchorPane loadDataView = (AnchorPane) loader.load();
 
             rootLayout.setCenter(loadDataView);
-            /*
-            HomeController controller = loader.getController();
+
+            LoadDataController controller = loader.getController();
             controller.setMainApp(this);
-             */
-
-            /*
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
-             */
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -90,16 +91,9 @@ public class App extends Application {
             AnchorPane runAlgorithmsView = (AnchorPane) loader.load();
 
             rootLayout.setCenter(runAlgorithmsView);
-            /*
-            HomeController controller = loader.getController();
+
+            RunAlgorithmsController controller = loader.getController();
             controller.setMainApp(this);
-             */
-
-            /*
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
-             */
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -110,4 +104,16 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+    //  ---------------------------------- Graph getter and setter --------------------------------------------
+
+    public int[][] getLoadedGraph() {
+        return loadedGraph;
+    }
+
+    public void setLoadedGraph(int[][] loadedGraph) {
+        this.loadedGraph = loadedGraph;
+        layoutController.setLoadedGraphInfo(loadedGraph.length);
+    }
+
 }

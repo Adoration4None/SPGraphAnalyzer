@@ -9,7 +9,6 @@ import javafx.scene.layout.VBox;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -62,48 +61,72 @@ public class LoadDataController {
 
     }
 
+    public void setMainApp(App app) {
+        this.app = app;
+    }
+
     @FXML
     void load128Action(ActionEvent event) {
-        BigInteger[][] randomMatrix = fill(128);
-        saveMatrixToFile(randomMatrix, "");
+        int[][] matrix = readMatrixFromFile(128);
+        app.setLoadedGraph(matrix);
 
-
-        showSuccessMessage(128);
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load256Action(ActionEvent event) {
-        showSuccessMessage(256);
+        int[][] matrix = readMatrixFromFile(256);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load512Action(ActionEvent event) {
-        showSuccessMessage(512);
+        int[][] matrix = readMatrixFromFile(512);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load1024Action(ActionEvent event) {
-        showSuccessMessage(1024);
+        int[][] matrix = readMatrixFromFile(1024);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load2048Action(ActionEvent event) {
-        showSuccessMessage(2048);
+        int[][] matrix = readMatrixFromFile(2048);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load4096Action(ActionEvent event) {
-        showSuccessMessage(4096);
+        int[][] matrix = readMatrixFromFile(4096);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load8192Action(ActionEvent event) {
-        showSuccessMessage(8192);
+        int[][] matrix = readMatrixFromFile(8192);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
     void load10000Action(ActionEvent event) {
-        showSuccessMessage(10000);
+        int[][] matrix = readMatrixFromFile(10000);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
     }
 
     @FXML
@@ -123,23 +146,22 @@ public class LoadDataController {
      * @param n
      * @return matrix full with random integer numbers
      */
-    public static BigInteger[][] fill(int n) {
-        BigInteger[][] matrix = new BigInteger[n][n];
-        BigInteger randomValue;
+    public static int[][] fill(int n) {
+        int[][] matrix = new int[n][n];
+        Random random = new Random();
 
         // Min number (0)
-        BigInteger min = BigInteger.ZERO;
+        int min = 0;
 
-        // Max number (100)
-        BigInteger max = BigInteger.TEN.pow(3);
+        // Max number (1000)
+        int max = 1000;
 
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n; j++) {
-                randomValue = new BigInteger(max.bitLength(), new Random());
-                randomValue = randomValue.mod(max.subtract(min)).add(min);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int randomValue = random.nextInt(max - min) + min;
                 matrix[i][j] = randomValue;
 
-                if(i == j) matrix[i][j] = BigInteger.ZERO;
+                if (i == j) matrix[i][j] = 0;
             }
         }
 
@@ -151,10 +173,10 @@ public class LoadDataController {
      * @param n
      * @return n*n int matrix
      */
-    private static BigInteger[][] readMatrixFromFile(int n, char name) {
-        Path path = Paths.get(name + n + ".txt");
+    private static int[][] readMatrixFromFile(int n) {
+        Path path = Paths.get("input_data/" + n + ".txt");
 
-        BigInteger[][] matrix = new BigInteger[n][n];
+        int[][] matrix = new int[n][n];
 
         try {
             String content = Files.readString(path);
@@ -164,7 +186,7 @@ public class LoadDataController {
                 String[] columns = rows[i].split("\t");
 
                 for(int j = 0; j < n; j++) {
-                    matrix[i][j] = new BigInteger(columns[j]);
+                    matrix[i][j] = Integer.parseInt(columns[j]);
                 }
             }
 
@@ -181,7 +203,7 @@ public class LoadDataController {
      * Saves in a text file the content stored in a matrix
      * @param matrix
      */
-    public static void saveMatrixToFile(BigInteger[][] matrix, String name) {
+    public static void saveMatrixToFile(int[][] matrix, String name) {
         try {
             FileWriter writer = new FileWriter(name + matrix.length + ".txt");
 
