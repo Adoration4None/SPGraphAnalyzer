@@ -4,6 +4,7 @@ import co.edu.uniquindio.proyectoanalisis.App;
 import co.edu.uniquindio.proyectoanalisis.logic.DijkstraAlgorithm;
 import co.edu.uniquindio.proyectoanalisis.logic.FloydWarshallAlgorithm;
 import co.edu.uniquindio.proyectoanalisis.logic.JohnsonAlgorithm;
+import co.edu.uniquindio.proyectoanalisis.logic.MultistageGraphAlgorithm;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -112,7 +113,21 @@ public class RunAlgorithmsController {
 
     @FXML
     void multistageAction(ActionEvent event) {
+        MultistageGraphAlgorithm algorithm = new MultistageGraphAlgorithm(loadedGraph.length);
 
+        vbResult.setVisible(true);
+        lblResult.setText("Running Multistage Graph SP algorithm ...");
+
+        initTime = System.nanoTime();
+        algorithm.shortestDist(loadedGraph); ;
+        endTime = System.nanoTime();
+
+        execTime = (endTime - initTime) / 1000000;
+
+        lblResult.setText("Done in " + execTime + " ms.");
+        btnInspectResult.setVisible(true);
+
+        saveResultToFile(execTime, "multistage-graph-sp");
     }
 
     @FXML
