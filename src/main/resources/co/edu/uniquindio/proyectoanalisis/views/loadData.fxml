@@ -54,7 +54,7 @@
             <Font name="Lato Regular" size="24.0" />
          </font>
       </Text>
-      <VBox fx:id="vbMatrixLoaded" alignment="CENTER" layoutX="249.0" layoutY="413.0" prefHeight="96.0" prefWidth="400.0" spacing="2.0" visible="false">
+      <VBox fx:id="vbMatrixLoaded" alignment="CENTER" layoutX="249.0" layoutY="413.0" prefHeight="96.0" prefWidth="400.0" spacing="2.0" visible="false" AnchorPane.bottomAnchor="51.0">
          <children>
             <Label fx:id="lblMatrixLoaded" alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="390.0" textFill="#fcfcfc">
                <font>
