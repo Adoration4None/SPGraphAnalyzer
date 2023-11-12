@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,30 +17,6 @@ import java.nio.file.Paths;
 import java.util.Random;
 
 public class LoadDataController {
-
-    @FXML
-    private Button btn10000;
-
-    @FXML
-    private Button btn1024;
-
-    @FXML
-    private Button btn128;
-
-    @FXML
-    private Button btn2048;
-
-    @FXML
-    private Button btn256;
-
-    @FXML
-    private Button btn4096;
-
-    @FXML
-    private Button btn512;
-
-    @FXML
-    private Button btn8192;
 
     @FXML
     private VBox vbMatrixLoaded;
@@ -63,22 +41,6 @@ public class LoadDataController {
 
     public void setMainApp(App app) {
         this.app = app;
-    }
-
-    @FXML
-    void load128Action(ActionEvent event) {
-        int[][] matrix = readMatrixFromFile(128);
-        app.setLoadedGraph(matrix);
-
-        showSuccessMessage(matrix.length);
-    }
-
-    @FXML
-    void load256Action(ActionEvent event) {
-        int[][] matrix = readMatrixFromFile(256);
-        app.setLoadedGraph(matrix);
-
-        showSuccessMessage(matrix.length);
     }
 
     @FXML
@@ -122,9 +84,28 @@ public class LoadDataController {
     }
 
     @FXML
-    void load10000Action(ActionEvent event) {
-        int[][] matrix = readMatrixFromFile(10000);
+    void load16384Action(ActionEvent event) {
+        int[][] matrix = readMatrixFromFile(16384);
         app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
+    }
+
+    @FXML
+    void load21000Action(ActionEvent event) {
+        int[][] matrix = readMatrixFromFile(21000);
+        app.setLoadedGraph(matrix);
+
+        showSuccessMessage(matrix.length);
+    }
+
+    @FXML
+    void load27000Action(ActionEvent event) {
+        int matrix[][] = readMatrixFromFile(27000);
+        app.setLoadedGraph(matrix);
+
+        /*int matrix[][] = fill(21000);
+        saveMatrixToFile(matrix, "input_data/");*/
 
         showSuccessMessage(matrix.length);
     }
@@ -178,21 +159,25 @@ public class LoadDataController {
 
         int[][] matrix = new int[n][n];
 
-        try {
-            String content = Files.readString(path);
-            String[] rows  = content.split("\n");
+        try ( BufferedReader br = new BufferedReader( new FileReader(path.toFile()) ) ) {
+            String line;
 
-            for(int i = 0; i < n; i++) {
-                String[] columns = rows[i].split("\t");
+            for (int i = 0; i < n; i++) {
+                if ((line = br.readLine()) != null) {
+                    String[] columns = line.split("\t");
 
-                for(int j = 0; j < n; j++) {
-                    matrix[i][j] = Integer.parseInt(columns[j]);
+                    for (int j = 0; j < n; j++) {
+                        matrix[i][j] = Integer.parseInt(columns[j]);
+                    }
+                } else {
+                    // Handle case where file ends prematurely
+                    System.err.println("Error: Insufficient rows in the file.");
+                    return null;
                 }
             }
 
             return matrix;
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

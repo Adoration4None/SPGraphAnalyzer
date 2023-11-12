@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.io.*;
+
 public class RunAlgorithmsController {
 
     @FXML
@@ -45,10 +47,12 @@ public class RunAlgorithmsController {
         algorithm.dijkstra(loadedGraph, 0);
         endTime = System.nanoTime();
 
-        execTime = endTime - initTime;
+        execTime = (endTime - initTime) / 1000000;
 
-        lblResult.setText("Done in " + execTime/1000000 + " ms.");
+        lblResult.setText("Done in " + execTime + " ms.");
         btnInspectResult.setVisible(true);
+
+        saveResultToFile(execTime, "dijkstra");
     }
 
     @FXML
@@ -109,5 +113,39 @@ public class RunAlgorithmsController {
     public void setMainApp(App app) {
         this.app = app;
         this.loadedGraph = app.getLoadedGraph();
+    }
+
+    // -------------------------------- Persistence utilities ------------------------------------
+
+    private void saveResultToFile(double execTime, String algorithm) {
+        String fileName = "results/" + algorithm + "/" + algorithm + loadedGraph.length + ".txt";
+
+        try {
+            FileWriter writer = new FileWriter(fileName, true);
+
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+
+            StringBuilder content = new StringBuilder();
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                content.append(line).append(System.lineSeparator());
+            }
+
+            content.insert(0, execTime + " ms" + System.lineSeparator());
+
+            br.close();
+
+            FileWriter fw = new FileWriter(fileName);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            bw.write(content.toString());
+
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

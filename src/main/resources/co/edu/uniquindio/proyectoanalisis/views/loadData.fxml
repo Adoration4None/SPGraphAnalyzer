@@ -39,14 +39,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn128" mnemonicParsing="false" onAction="#load128Action" prefHeight="65.0" prefWidth="97.0" text="128x128" />
-            <Button fx:id="btn256" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#load256Action" prefHeight="65.0" prefWidth="97.0" text="256x256" GridPane.columnIndex="1" />
-            <Button fx:id="btn512" layoutX="110.0" layoutY="14.0" mnemonicParsing="false" onAction="#load512Action" prefHeight="65.0" prefWidth="97.0" text="512x512" GridPane.columnIndex="2" />
-            <Button fx:id="btn1024" layoutX="210.0" layoutY="14.0" mnemonicParsing="false" onAction="#load1024Action" prefHeight="65.0" prefWidth="97.0" text="1024x1024" GridPane.columnIndex="3" />
-            <Button fx:id="btn2048" layoutX="310.0" layoutY="14.0" mnemonicParsing="false" onAction="#load2048Action" prefHeight="65.0" prefWidth="97.0" text="2048x2048" GridPane.rowIndex="1" />
-            <Button fx:id="btn4096" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#load4096Action" prefHeight="65.0" prefWidth="97.0" stylesheets="@styles.css" text="4096x4096" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="btn8192" layoutX="110.0" layoutY="87.0" mnemonicParsing="false" onAction="#load8192Action" prefHeight="65.0" prefWidth="97.0" text="8192x8192" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="btn10000" layoutX="210.0" layoutY="87.0" mnemonicParsing="false" onAction="#load10000Action" prefHeight="65.0" prefWidth="97.0" text="10000x10000" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#load512Action" prefHeight="65.0" prefWidth="97.0" text="512x512" />
+            <Button layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#load512Action" prefHeight="65.0" prefWidth="97.0" text="1024x1024" GridPane.columnIndex="1" />
+            <Button layoutX="110.0" layoutY="14.0" mnemonicParsing="false" onAction="#load2048Action" prefHeight="65.0" prefWidth="97.0" text="2048x2048" GridPane.columnIndex="2" />
+            <Button layoutX="210.0" layoutY="14.0" mnemonicParsing="false" onAction="#load4096Action" prefHeight="65.0" prefWidth="97.0" text="4096x4096" GridPane.columnIndex="3" />
+            <Button layoutX="310.0" layoutY="14.0" mnemonicParsing="false" onAction="#load8192Action" prefHeight="65.0" prefWidth="97.0" text="8192x8192" GridPane.rowIndex="1" />
+            <Button layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#load16384Action" prefHeight="65.0" prefWidth="97.0" stylesheets="@styles.css" text="16384x16384" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button layoutX="110.0" layoutY="87.0" mnemonicParsing="false" onAction="#load21000Action" prefHeight="65.0" prefWidth="97.0" text="21000x21000" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button layoutX="210.0" layoutY="87.0" mnemonicParsing="false" onAction="#load27000Action" prefHeight="65.0" prefWidth="97.0" text="27000x27000" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Text fill="#d7d7d7" layoutX="175.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the size for the adjacency matrix to be loaded" AnchorPane.topAnchor="178.0">

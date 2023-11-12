@@ -49,6 +49,6 @@ public class LayoutController {
 
     public void setLoadedGraphInfo(int size) {
         gpLoadedGraph.setVisible(true);
-        lblLoadedGraph.setText(size + " vertices (" + size + "*" + size + "matrix)");
+        lblLoadedGraph.setText(size + " vertices (" + size + "*" + size + " matrix)");
     }
 }
