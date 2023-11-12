@@ -40,7 +40,7 @@
         </rowConstraints>
          <children>
             <Button mnemonicParsing="false" onAction="#load512Action" prefHeight="65.0" prefWidth="97.0" text="512x512" />
-            <Button layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#load512Action" prefHeight="65.0" prefWidth="97.0" text="1024x1024" GridPane.columnIndex="1" />
+            <Button layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#load1024Action" prefHeight="65.0" prefWidth="97.0" text="1024x1024" GridPane.columnIndex="1" />
             <Button layoutX="110.0" layoutY="14.0" mnemonicParsing="false" onAction="#load2048Action" prefHeight="65.0" prefWidth="97.0" text="2048x2048" GridPane.columnIndex="2" />
             <Button layoutX="210.0" layoutY="14.0" mnemonicParsing="false" onAction="#load4096Action" prefHeight="65.0" prefWidth="97.0" text="4096x4096" GridPane.columnIndex="3" />
             <Button layoutX="310.0" layoutY="14.0" mnemonicParsing="false" onAction="#load8192Action" prefHeight="65.0" prefWidth="97.0" text="8192x8192" GridPane.rowIndex="1" />

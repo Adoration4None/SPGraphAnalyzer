@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyectoanalisis.controllers;
 
 import co.edu.uniquindio.proyectoanalisis.App;
 import co.edu.uniquindio.proyectoanalisis.logic.DijkstraAlgorithm;
+import co.edu.uniquindio.proyectoanalisis.logic.FloydWarshallAlgorithm;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -62,7 +63,21 @@ public class RunAlgorithmsController {
 
     @FXML
     void floydWarshallAction(ActionEvent event) {
+        FloydWarshallAlgorithm algorithm = new FloydWarshallAlgorithm(loadedGraph.length);
 
+        vbResult.setVisible(true);
+        lblResult.setText("Running Floyd Warshall algorithm ...");
+
+        initTime = System.nanoTime();
+        algorithm.floydWarshall(loadedGraph); ;
+        endTime = System.nanoTime();
+
+        execTime = (endTime - initTime) / 1000000;
+
+        lblResult.setText("Done in " + execTime + " ms.");
+        btnInspectResult.setVisible(true);
+
+        saveResultToFile(execTime, "floyd-warshall");
     }
 
     @FXML

@@ -13,7 +13,7 @@ public class FloydWarshallAlgorithm {
     private final static int INF = 99999;
     private int V = 4;
 
-    void floydWarshall(int dist[][]) {
+    public void floydWarshall(int dist[][]) {
 
         int i, j, k;
 
@@ -51,10 +51,10 @@ public class FloydWarshallAlgorithm {
         }
 
         // Print the shortest distance matrix
-        printSolution(dist);
+        //printSolution(dist);
     }
 
-    void printSolution(int dist[][]) {
+    private void printSolution(int dist[][]) {
         System.out.println(
                 "The following matrix shows the shortest "
                         + "distances between every pair of vertices");
