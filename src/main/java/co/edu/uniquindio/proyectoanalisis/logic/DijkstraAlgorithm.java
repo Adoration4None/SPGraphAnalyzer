@@ -1,7 +1,10 @@
 package co.edu.uniquindio.proyectoanalisis.logic;
 
 // This code is contributed by Aakash Hasija
-// Took from GeeksforGeeks
+/*
+   Took from GeeksforGeeks
+   https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
+ */
 
 // A Java program for Dijkstra's single source shortest path
 // algorithm. The program is for adjacency matrix

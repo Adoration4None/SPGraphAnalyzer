@@ -1,7 +1,10 @@
 package co.edu.uniquindio.proyectoanalisis.logic;
 
 // Contributed by Aakash Hasija
-// Took from GeeksforGeeks
+/*
+   Took from GeeksforGeeks
+   https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/
+ */
 
 // Java program for Floyd Warshall All Pairs Shortest
 // Path algorithm.
