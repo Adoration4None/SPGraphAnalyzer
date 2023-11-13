@@ -1,7 +1,6 @@
 package co.edu.uniquindio.proyectoanalisis.utils;
 
-import co.edu.uniquindio.proyectoanalisis.logic.BellmanFordAlgorithm;
-import co.edu.uniquindio.proyectoanalisis.logic.DijkstraAlgorithm;
+import co.edu.uniquindio.proyectoanalisis.logic.*;
 
 public class Algorithm {
     private int id;
@@ -68,28 +67,28 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 3) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            FloydWarshallAlgorithm algorithm = new FloydWarshallAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.floydWarshall(graph);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;
         }
         if(id == 4) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            JohnsonAlgorithm algorithm = new JohnsonAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.johnson(graph);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;
         }
         if(id == 5) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            DirectedAcyclicAlgorithm algorithm = new DirectedAcyclicAlgorithm(graph, graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.shortestPath(0);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;

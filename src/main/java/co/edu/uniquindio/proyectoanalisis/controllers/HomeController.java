@@ -29,7 +29,7 @@ public class HomeController {
 
     @FXML
     void createTestAction(ActionEvent event) {
-
+        app.showCreateTestCaseDialog();
     }
 
     @FXML

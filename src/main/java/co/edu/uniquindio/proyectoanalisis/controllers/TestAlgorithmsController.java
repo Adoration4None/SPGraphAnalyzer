@@ -54,7 +54,7 @@ public class TestAlgorithmsController {
 
     private ArrayList<String> getGraphSizes() {
         ArrayList<String> sizesList = new ArrayList<>();
-        int[] sizes = {512, 1024, 2048, 4096, 8192, 16384, 21000, 27000};
+        int[] sizes = {128, 256, 512, 1024, 2048, 4096, 8192, 10000};
 
         for(int size : sizes) {
             sizesList.add("" + size);
