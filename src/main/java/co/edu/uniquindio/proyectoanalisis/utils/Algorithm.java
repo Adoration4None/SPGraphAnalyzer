@@ -94,10 +94,10 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 6) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            DialAlgorithm algorithm = new DialAlgorithm();
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.shortestPath(graph, 0, 999);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;

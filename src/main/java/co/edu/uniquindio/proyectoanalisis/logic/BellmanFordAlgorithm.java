@@ -1,5 +1,9 @@
 package co.edu.uniquindio.proyectoanalisis.logic;
 
+/*
+   Took from GeeksforGeeks
+   https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/
+ */
 public class BellmanFordAlgorithm {
 
     private int V;
