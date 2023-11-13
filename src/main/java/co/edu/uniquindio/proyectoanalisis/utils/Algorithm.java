@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyectoanalisis.utils;
 
+import co.edu.uniquindio.proyectoanalisis.logic.BellmanFordAlgorithm;
 import co.edu.uniquindio.proyectoanalisis.logic.DijkstraAlgorithm;
 
 public class Algorithm {
@@ -58,10 +59,10 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 2) {
-            //DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            BellmanFordAlgorithm algorithm = new BellmanFordAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            //algorithm.dijkstra(graph, 0);
+            algorithm.bellmanFord(graph, 0);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;
