@@ -103,19 +103,19 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 7) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            MultistageGraphAlgorithm algorithm = new MultistageGraphAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.shortestDist(graph);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;
         }
         if(id == 8) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            UnweightedGraphSPAlgorithm algorithm = new UnweightedGraphSPAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.run(graph, 0);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;
