@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: black;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoanalisis.controllers.TestAlgorithmsController">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="900.0" pickOnBounds="true" smooth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../../img/background2.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c2" height="560.0" stroke="BLACK" strokeType="INSIDE" width="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Text fill="#fcfcfc" layoutX="286.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEST ALGORITHMS" AnchorPane.topAnchor="78.0">
+         <font>
+            <Font name="Lato Bold" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d7d7" layoutX="290.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the SP algorithm to test" AnchorPane.topAnchor="295.3120002746582">
+         <font>
+            <Font name="Lato Regular" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#d7d7d7" layoutX="139.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the size (vertices number) for the graph to be loaded" AnchorPane.topAnchor="159.0">
+         <font>
+            <Font name="Lato Regular" size="24.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cmbGraphSize" layoutX="350.0" layoutY="206.0" onAction="#sizeSelectedAction" prefHeight="30.0" prefWidth="200.0" promptText="Select a size" visibleRowCount="8" />
+      <ComboBox fx:id="cmbAlgorithm" layoutX="350.0" layoutY="340.0" onAction="#algorithmSelectedAction" prefHeight="30.0" prefWidth="200.0" promptText="Select algorithm" visibleRowCount="8" />
+      <Label fx:id="lblFeedback" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="459.0" prefHeight="23.0" prefWidth="720.0" textFill="#fcfcfc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

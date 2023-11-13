@@ -1,9 +1,6 @@
 package co.edu.uniquindio.proyectoanalisis;
 
-import co.edu.uniquindio.proyectoanalisis.controllers.HomeController;
-import co.edu.uniquindio.proyectoanalisis.controllers.LayoutController;
-import co.edu.uniquindio.proyectoanalisis.controllers.LoadDataController;
-import co.edu.uniquindio.proyectoanalisis.controllers.RunAlgorithmsController;
+import co.edu.uniquindio.proyectoanalisis.controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,7 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.math.BigInteger;
 
 public class App extends Application {
     private Stage primaryStage;
@@ -67,32 +63,15 @@ public class App extends Application {
         }
     }
 
-    public void showLoadDataView() {
+    public void showTestAlgorithmsView() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("views/loadData.fxml"));
-            AnchorPane loadDataView = (AnchorPane) loader.load();
-
-            rootLayout.setCenter(loadDataView);
-
-            LoadDataController controller = loader.getController();
-            controller.setMainApp(this);
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void showRunAlgorithmsView() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("views/runAlgorithms.fxml"));
+            loader.setLocation(App.class.getResource("views/testAlgorithms.fxml"));
             AnchorPane runAlgorithmsView = (AnchorPane) loader.load();
 
             rootLayout.setCenter(runAlgorithmsView);
 
-            RunAlgorithmsController controller = loader.getController();
+            TestAlgorithmsController controller = loader.getController();
             controller.setMainApp(this);
         }
         catch(IOException e) {

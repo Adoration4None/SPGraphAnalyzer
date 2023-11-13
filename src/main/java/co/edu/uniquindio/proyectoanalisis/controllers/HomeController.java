@@ -10,12 +10,6 @@ import javafx.scene.layout.HBox;
 public class HomeController {
     // GUI elements
     @FXML
-    private Button btnLoadData;
-
-    @FXML
-    private Button btnRunAlgorithms;
-
-    @FXML
     private HBox hbLoadedGraph;
 
     @FXML
@@ -34,15 +28,19 @@ public class HomeController {
     }
 
     @FXML
-    void loadDataAction(ActionEvent event) {
-        app.initRootLayout();
-        app.showLoadDataView();
+    void createTestAction(ActionEvent event) {
+
     }
 
     @FXML
-    void runAlgorithmsAction(ActionEvent event) {
+    void testAlgorithmsAction(ActionEvent event) {
         app.initRootLayout();
-        app.showRunAlgorithmsView();
+        app.showTestAlgorithmsView();
+    }
+
+    @FXML
+    void viewReportAction(ActionEvent event) {
+
     }
 
     public void setMainApp(App app) {

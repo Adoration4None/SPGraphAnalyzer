@@ -25,7 +25,21 @@
                   <Insets bottom="30.0" />
                </VBox.margin>
             </Text>
-            <Button fx:id="btnLoadData" mnemonicParsing="false" onAction="#loadDataAction" prefHeight="60.0" prefWidth="170.0" text="LOAD DATA">
+            <Button layoutX="375.0" layoutY="249.0" mnemonicParsing="false" onAction="#createTestAction" prefHeight="60.0" prefWidth="170.0" text="CREATE TEST CASE">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#testAlgorithmsAction" prefHeight="60.0" prefWidth="170.0" text="TEST ALGORITHMS">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
@@ -39,7 +53,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnRunAlgorithms" mnemonicParsing="false" onAction="#runAlgorithmsAction" prefHeight="60.0" prefWidth="170.0" text="RUN ALGORITHMS">
+            <Button mnemonicParsing="false" onAction="#viewReportAction" prefHeight="60.0" prefWidth="170.0" text="VIEW REPORT">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
