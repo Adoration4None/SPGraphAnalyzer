@@ -26,6 +26,7 @@ public class TestAlgorithmsController {
     // Reference to the main application
     private App app;
 
+    Algorithm selectedAlgorithm;
     private int selectedSize;
     private int[][] selectedGraph;
 
@@ -82,6 +83,13 @@ public class TestAlgorithmsController {
 
     public void setMainApp(App app) {
         this.app = app;
+
+        if(app.getLoadedGraph() != null) {
+            selectedSize = app.getLoadedGraph().length;
+            selectedGraph = app.getLoadedGraph();
+
+            cmbGraphSize.getSelectionModel().select("" + selectedSize);
+        }
     }
 
     @FXML
@@ -95,12 +103,19 @@ public class TestAlgorithmsController {
         app.setLoadedGraph(selectedGraph);
 
         lblFeedback.setText(selectedSize + " vertices graph loaded successfully");
+
+        if(selectedAlgorithm != null) {
+            double execTime = selectedAlgorithm.run(selectedGraph);
+
+            lblFeedback.setText(selectedAlgorithm.getName() + " done in " + execTime + " ms.");
+            saveResultToFile(execTime, selectedAlgorithm.getFileName());
+        }
     }
 
     @FXML
     void algorithmSelectedAction(ActionEvent event) throws Exception {
         double execTime;
-        Algorithm selectedAlgorithm = cmbAlgorithm.getSelectionModel().getSelectedItem();
+        this.selectedAlgorithm = cmbAlgorithm.getSelectionModel().getSelectedItem();
 
         if(selectedSize  == 0)    throw new Exception("No graph size selected");
         if(selectedGraph == null) throw new Exception("No graph selected");

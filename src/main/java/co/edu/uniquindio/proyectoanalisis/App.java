@@ -94,5 +94,4 @@ public class App extends Application {
         this.loadedGraph = loadedGraph;
         layoutController.setLoadedGraphInfo(loadedGraph.length);
     }
-
 }
