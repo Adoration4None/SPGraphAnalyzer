@@ -10,9 +10,11 @@ import java.util.Random;
 
 public class MatrixHelper {
     private int size;
+    private boolean binary;
 
-    public MatrixHelper(int size) {
-        this.size = size;
+    public MatrixHelper(int size, boolean binary) {
+        this.size   = size;
+        this.binary = binary;
     }
 
     public int getSize() {
@@ -23,6 +25,14 @@ public class MatrixHelper {
         this.size = size;
     }
 
+    public boolean isBinary() {
+        return binary;
+    }
+
+    public void setBinary(boolean binary) {
+        this.binary = binary;
+    }
+
     /**
      * Fills a n*n matrix with random integer numbers
      * @return matrix full with random integer numbers
@@ -30,6 +40,8 @@ public class MatrixHelper {
     public int[][] generate() {
         int[][] matrix = new int[size][size];
         Random random = new Random();
+
+        if(binary) return generateBinary();
 
         // Min number (0)
         int min = 0;
@@ -49,13 +61,35 @@ public class MatrixHelper {
         return matrix;
     }
 
+    private int[][] generateBinary() {
+        int[][] matrix = new int[size][size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrix[i][j] = random.nextBoolean() ? 1 : 0;
+
+                if (i == j) matrix[i][j] = 0;
+            }
+        }
+
+        return matrix;
+    }
+
     /**
      * Reads a n*n int matrix from a text file
      * @param n
      * @return n*n int matrix
      */
     public int[][] readMatrixFromFile() {
-        Path path = Paths.get("input_data/" + size + ".txt");
+        Path path;
+
+        if(binary) {
+            path = Paths.get("input_data/" + size + "bin.txt");
+        }
+        else {
+            path = Paths.get("input_data/" + size + ".txt");
+        }
 
         int[][] matrix = new int[size][size];
 
@@ -90,7 +124,14 @@ public class MatrixHelper {
      */
     public void saveMatrixToFile(int[][] matrix, String name) {
         try {
-            FileWriter writer = new FileWriter( name + matrix.length + ".txt");
+            FileWriter writer;
+
+            if(binary) {
+                writer = new FileWriter( name + matrix.length + "bin.txt");
+            }
+            else {
+                writer = new FileWriter( name + matrix.length + ".txt");
+            }
 
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[i].length; j++) {

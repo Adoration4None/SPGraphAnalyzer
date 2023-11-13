@@ -121,19 +121,19 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 9) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            KarpAlgorithm algorithm = new KarpAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.minAvgWeight(graph);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;
         }
         if(id == 10) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            ZeroOneBFSAlgorithm algorithm = new ZeroOneBFSAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.run(graph);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;

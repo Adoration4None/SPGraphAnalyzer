@@ -5,6 +5,7 @@ import co.edu.uniquindio.proyectoanalisis.utils.Algorithm;
 import co.edu.uniquindio.proyectoanalisis.utils.MatrixHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.util.StringConverter;
@@ -23,8 +24,13 @@ public class TestAlgorithmsController {
     @FXML
     private Label lblFeedback;
 
+    @FXML
+    private CheckBox cbBinaryWeights;
+
     // Reference to the main application
     private App app;
+
+    private boolean binaryWeights = false;
 
     Algorithm selectedAlgorithm;
     private int selectedSize;
@@ -93,16 +99,26 @@ public class TestAlgorithmsController {
     }
 
     @FXML
+    void changeBinaryWeights(ActionEvent event) {
+        binaryWeights = !binaryWeights;
+    }
+
+    @FXML
     void sizeSelectedAction(ActionEvent event) {
         this.selectedSize = Integer.parseInt( cmbGraphSize.getSelectionModel().getSelectedItem() );
         lblFeedback.setText("Loading " + selectedSize + " vertices graph ...");
 
-        MatrixHelper matrixHelper = new MatrixHelper(selectedSize);
+        MatrixHelper matrixHelper = new MatrixHelper(selectedSize, binaryWeights);
 
         this.selectedGraph = matrixHelper.readMatrixFromFile();
         app.setLoadedGraph(selectedGraph);
 
-        lblFeedback.setText(selectedSize + " vertices graph loaded successfully");
+        if(binaryWeights) {
+            lblFeedback.setText(selectedSize + " vertices graph (binary weights) loaded successfully");
+        }
+        else {
+            lblFeedback.setText(selectedSize + " vertices graph loaded successfully");
+        }
 
         if(selectedAlgorithm != null) {
             double execTime = selectedAlgorithm.run(selectedGraph);

@@ -4,6 +4,7 @@ import co.edu.uniquindio.proyectoanalisis.App;
 import co.edu.uniquindio.proyectoanalisis.utils.MatrixHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -15,11 +16,15 @@ public class CreateTestCaseController {
     @FXML
     private Spinner<Integer> spnSizeInput;
 
+    @FXML
+    private CheckBox cbBinaryWeights;
+
     // Reference to the main application
     private App app;
 
     private Stage dialogStage;
     private boolean okClicked = false;
+    private boolean binaryWeights = false;
 
     public void setApp(App app) {
         this.app = app;
@@ -39,7 +44,7 @@ public class CreateTestCaseController {
      */
     @FXML
     private void initialize() {
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 15000);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 10000);
 
         valueFactory.setValue(128);
         spnSizeInput.setValueFactory(valueFactory);
@@ -51,6 +56,11 @@ public class CreateTestCaseController {
     }
 
     @FXML
+    void changeBinaryWeights(ActionEvent event) {
+        binaryWeights = !binaryWeights;
+    }
+
+    @FXML
     void okAction(ActionEvent event) {
         int enteredSize;
 
@@ -58,7 +68,7 @@ public class CreateTestCaseController {
             okClicked = true;
 
             enteredSize = spnSizeInput.getValue();
-            MatrixHelper matrixHelper = new MatrixHelper(enteredSize);
+            MatrixHelper matrixHelper = new MatrixHelper(enteredSize, binaryWeights);
 
             matrixHelper.saveMatrixToFile(matrixHelper.generate(), "input_data/");
 
