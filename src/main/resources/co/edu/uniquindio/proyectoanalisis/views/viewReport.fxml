@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: black;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoanalisis.controllers.ViewReportController">
+   <children>
+      <Text fill="#fcfcfc" layoutX="283.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXEC TIME REPORT" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="Lato Bold" size="36.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="265.0" layoutY="76.0" prefHeight="43.0" prefWidth="370.0">
+         <children>
+            <Label text="Graph size to compare:" textFill="#d7d7d7">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbGraphSize" onAction="#changeGraphSize" prefHeight="30.0" prefWidth="150.0" promptText="Select a size">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </ComboBox>
+         </children>
+      </HBox>
+      <Pane layoutX="15.0" layoutY="129.0" prefHeight="420.0" prefWidth="869.0" style="-fx-background-color: #d7d7d7;">
+         <children>
+            <BarChart fx:id="chart" prefHeight="423.0" prefWidth="868.0" title="Algorithm vs Exec Time Chart">
+              <xAxis>
+                <CategoryAxis label="Algorithm" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Exec time (ms)" side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

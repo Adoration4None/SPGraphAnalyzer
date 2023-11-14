@@ -81,7 +81,7 @@ public class App extends Application {
 
     }
 
-    public boolean showCreateTestCaseDialog() {
+    public void showCreateTestCaseDialog() {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
@@ -105,11 +105,24 @@ public class App extends Application {
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-            return controller.isOkClicked();
-
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
+        }
+    }
+
+    public void showViewReportView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("views/viewReport.fxml"));
+            AnchorPane reportView = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(reportView);
+
+            ViewReportController controller = loader.getController();
+            controller.setMainApp(this);
+        }
+        catch(IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -127,4 +140,6 @@ public class App extends Application {
         this.loadedGraph = loadedGraph;
         layoutController.setLoadedGraphInfo(loadedGraph.length);
     }
+
+
 }

@@ -40,7 +40,8 @@ public class HomeController {
 
     @FXML
     void viewReportAction(ActionEvent event) {
-
+        app.initRootLayout();
+        app.showViewReportView();
     }
 
     public void setMainApp(App app) {

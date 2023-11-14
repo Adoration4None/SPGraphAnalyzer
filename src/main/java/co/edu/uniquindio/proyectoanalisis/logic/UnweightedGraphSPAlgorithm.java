@@ -18,7 +18,7 @@ public class UnweightedGraphSPAlgorithm {
     public void run(int[][] graph, int src) {
         for (int i = 0; i < V; i++) {
             System.out.println("Shortest path from node 0 to node " + i + ":");
-            printShortestDistance(graph, 0, i, V);
+            printShortestDistance(graph, src, i, V);
             System.out.println();
         }
     }
