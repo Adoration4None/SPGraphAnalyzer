@@ -1,7 +1,10 @@
 package co.edu.uniquindio.proyectoanalisis.logic;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+/*
+   Took from GeeksforGeeks
+   https://www.geeksforgeeks.org/0-1-bfs-shortest-path-binary-graph/
+ */
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;

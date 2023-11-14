@@ -139,10 +139,10 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 11) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            MinimumWeightCycleAlgorithm algorithm = new MinimumWeightCycleAlgorithm(graph.length);
 
             initTime = System.nanoTime();
-            algorithm.dijkstra(graph, 0);
+            algorithm.run(graph);
             endTime = System.nanoTime();
 
             return (endTime - initTime) / 1000000;

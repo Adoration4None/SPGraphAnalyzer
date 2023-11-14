@@ -3,7 +3,7 @@ package co.edu.uniquindio.proyectoanalisis.logic;
 // This code is contributed by sanjeev2552
 /*
    Took from GeeksforGeeks
-   https://www.geeksforgeeks.org/shortest-path-unweighted-graph/
+   https://www.geeksforgeeks.org/karps-minimum-mean-average-weight-cycle-algorithm/
  */
 
 public class KarpAlgorithm {
