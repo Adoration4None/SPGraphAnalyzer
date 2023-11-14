@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoanalisis.controllers.LayoutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoanalisis.controllers.LayoutController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #111225;" BorderPane.alignment="CENTER">
          <children>
             <GridPane alignment="CENTER" hgap="5.0" prefHeight="35.0" prefWidth="160.0">
               <columnConstraints>
@@ -25,7 +25,6 @@
               </rowConstraints>
                <children>
                   <Button fx:id="btnHome" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#homeAction" prefHeight="25.0" prefWidth="80.0" text="Home" />
-                <Button fx:id="btnBack" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#backAction" prefHeight="25.0" prefWidth="82.0" text="Back" GridPane.columnIndex="1" />
                </children>
                <HBox.margin>
                   <Insets left="15.0" right="100.0" />
@@ -40,12 +39,12 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loaded Graph:" wrappingWidth="114.6953125">
+                  <Text fill="#d7d7d7" strokeType="OUTSIDE" strokeWidth="0.0" text="Loaded Graph:" wrappingWidth="114.6953125">
                      <font>
                         <Font name="Lato Bold" size="16.0" />
                      </font>
                   </Text>
-                  <Label fx:id="lblLoadedGraph" prefHeight="20.0" prefWidth="292.0" GridPane.columnIndex="1">
+                  <Label fx:id="lblLoadedGraph" prefHeight="20.0" prefWidth="292.0" textFill="#fcfcfc" GridPane.columnIndex="1">
                      <font>
                         <Font name="Lato Regular" size="14.0" />
                      </font>

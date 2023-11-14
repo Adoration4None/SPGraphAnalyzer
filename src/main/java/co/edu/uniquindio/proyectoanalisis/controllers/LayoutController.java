@@ -10,9 +10,6 @@ import javafx.scene.layout.GridPane;
 public class LayoutController {
 
     @FXML
-    private Button btnBack;
-
-    @FXML
     private Button btnHome;
 
     @FXML
@@ -30,11 +27,6 @@ public class LayoutController {
      */
     @FXML
     private void initialize() {
-
-    }
-
-    @FXML
-    void backAction(ActionEvent event) {
 
     }
 
