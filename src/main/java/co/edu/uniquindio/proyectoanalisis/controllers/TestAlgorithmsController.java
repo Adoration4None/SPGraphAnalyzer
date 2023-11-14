@@ -83,6 +83,7 @@ public class TestAlgorithmsController {
         algorithms.add( new Algorithm(9,  "Karp's Minimum Mean Weight Cycle",  "karp") );
         algorithms.add( new Algorithm(10, "0-1 BFS",                           "0-1-bfs") );
         algorithms.add( new Algorithm(11, "Minimum Cycle in Undirected Graph", "minimum-cycle-undirected") );
+        algorithms.add( new Algorithm(12, "Dijkstra Using Priority Queue",     "dijkstra-priority-queue") );
 
         return algorithms;
     }

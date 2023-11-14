@@ -148,7 +148,7 @@ public class Algorithm {
             return (endTime - initTime) / 1000000;
         }
         if(id == 12) {
-            DijkstraAlgorithm algorithm = new DijkstraAlgorithm(graph.length);
+            DijkstraPriorityQueueAlgorithm algorithm = new DijkstraPriorityQueueAlgorithm(graph.length);
 
             initTime = System.nanoTime();
             algorithm.dijkstra(graph, 0);
